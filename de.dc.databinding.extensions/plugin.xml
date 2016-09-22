@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated extension -->
+      <package
+            uri="http://chqu1012.de/extension"
+            class="extension.ExtensionPackage"
+            genModel="model/extension.genmodel"/>
+   </extension>
+   <extension
+         point="org.eclipse.emf.ecore.generated_package">
+      <package
+            class="extension.ExtensionPackage"
+            uri="de.dc.databinding.extensions">
+      </package>
+   </extension>
+
+</plugin>

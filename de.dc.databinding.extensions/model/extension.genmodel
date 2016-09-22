@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.dc.databinding.extensions/src" modelPluginID="de.dc.databinding.extensions"
+    modelName="Extension" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
+    importerID="org.eclipse.emf.importer.ecore" complianceLevel="8.0" copyrightFields="false"
+    usedGenPackages="../../org.eclipse.e4.ui.model.workbench/model/UIElements.genmodel#//application"
+    operationReflection="true" importOrganizing="true">
+  <foreignModel>extension.ecore</foreignModel>
+  <genPackages prefix="Extension" disposableProviderFactory="true" ecorePackage="extension.ecore#/">
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="extension.ecore#//Layout">
+      <genEnumLiterals ecoreEnumLiteral="extension.ecore#//Layout/Grid"/>
+      <genEnumLiterals ecoreEnumLiteral="extension.ecore#//Layout/Fill"/>
+    </genEnums>
+    <genClasses ecoreClass="extension.ecore#//FormPart">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//FormPart/composites"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//FormPart/width"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//FormPart/height"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//FormPart/layout"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference extension.ecore#//FormPart/layoutData"/>
+    </genClasses>
+    <genClasses ecoreClass="extension.ecore#//Composite">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//Composite/layout"/>
+    </genClasses>
+    <genClasses image="false" ecoreClass="extension.ecore#//LayoutData"/>
+    <genClasses ecoreClass="extension.ecore#//GridData">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//GridData/horizontalAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//GridData/verticalAlignment"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//GridData/horizonralSpan"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute extension.ecore#//GridData/verticalSpan"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>
