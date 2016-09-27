@@ -1,32 +1,43 @@
 package de.dc.databinding.rcp.parts;
 
-import javax.annotation.PostConstruct;
+import java.util.Date;
 
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+
+import org.eclipse.core.databinding.DataBindingContext;
+import org.eclipse.core.databinding.beans.PojoProperties;
+import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
-import org.eclipse.swt.layout.GridLayout;
-import org.eclipse.swt.widgets.Composite;
-
-import de.dc.databinding.rcp.model.Data;
-import org.eclipse.swt.widgets.Label;
+import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.widgets.Text;
-import org.eclipse.swt.layout.GridData;
-import org.eclipse.swt.widgets.Button;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
-import org.eclipse.core.databinding.DataBindingContext;
-import org.eclipse.core.databinding.observable.value.IObservableValue;
-import org.eclipse.jface.databinding.swt.WidgetProperties;
-import org.eclipse.core.databinding.beans.PojoProperties;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
+import org.eclipse.swt.widgets.Button;
+import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Label;
+import org.eclipse.swt.widgets.Text;
+
+import de.dc.databinding.rcp.model.Data;
 
 public class SamplePart {
 	private DataBindingContext m_bindingContext;
 
-	private Data data = new Data();
+//	private Data data = new Data();
 	private Text idText;
 	private Text nameText;
 	private Text valueText;
+	
+	@Inject Date date;
+	
+	@Inject
+	private IEventBroker broker;
+
+	@Inject Data data;
 	
 	@PostConstruct
 	public void createComposite(Composite parent) {
@@ -58,7 +69,10 @@ public class SamplePart {
 		testButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-				System.out.println(data.getId()+", "+data.getName()+", "+data.getValue());
+//				System.out.println(data.getId()+", "+data.getName()+", "+data.getValue());
+//				System.out.println(date);
+//				date.setMonth(11);
+				broker.post("TEST", "HALLO WELT");
 			}
 		});
 		testButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));

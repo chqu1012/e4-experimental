@@ -4,8 +4,11 @@
     <children xsi:type="advanced:PerspectiveStack" xmi:id="_6wlLkMgZEeSyMNYR5xypkQ" elementId="org.eclipse.ui.ide.perspectivestack">
       <children xsi:type="advanced:Perspective" xmi:id="_6wlLkcgZEeSyMNYR5xypkQ" elementId="de.dc.databinding.rcp.perspective.sample">
         <children xsi:type="basic:PartSashContainer" xmi:id="_6wlLksgZEeSyMNYR5xypkQ" elementId="de.dc.databinding.rcp.partsashcontainer.sample">
-          <children xsi:type="basic:PartStack" xmi:id="_6wlLk8gZEeSyMNYR5xypkQ" elementId="de.dc.databinding.rcp.partstack.sample">
+          <children xsi:type="basic:PartStack" xmi:id="_nw8awIT1EeaxqNSKnly5Rg" elementId="de.dc.databinding.rcp.partstack.0">
             <children xsi:type="basic:Part" xmi:id="_6wlLlMgZEeSyMNYR5xypkQ" elementId="de.dc.databinding.rcp.part.sample" contributionURI="bundleclass://de.dc.databinding.rcp/de.dc.databinding.rcp.parts.SamplePart" label="Sample Part"/>
+          </children>
+          <children xsi:type="basic:PartStack" xmi:id="_oGAr0IT1EeaxqNSKnly5Rg" elementId="de.dc.databinding.rcp.partstack.0">
+            <children xsi:type="basic:Part" xmi:id="_OQWlIITkEeaYEPPHWVPFQg" elementId="de.dc.databinding.rcp.part.TabFolderPart" contributionURI="bundleclass://de.dc.databinding.rcp/de.dc.databinding.rcp.parts.TabFolderPart"/>
           </children>
         </children>
       </children>
@@ -52,4 +55,5 @@
   <addons xmi:id="_6wlLdsgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.handler.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
   <addons xmi:id="_6wlLd8gZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
   <addons xmi:id="_6wlLeMgZEeSyMNYR5xypkQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_h5HzIITyEeaxqNSKnly5Rg" elementId="de.dc.databinding.rcp.addon.0" contributionURI="bundleclass://de.dc.databinding.rcp/de.dc.databinding.rcp.addon.BusinessDateAddon"/>
 </application:Application>

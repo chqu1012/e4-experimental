@@ -1,5 +1,8 @@
 package de.dc.databinding.rcp.model;
 
+import org.eclipse.e4.core.di.annotations.Creatable;
+
+@Creatable
 public class Data {
 	private int id;
 	private String name;
