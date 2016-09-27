@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.dc.databinding.rcp.model.Data;
+import de.dc.databinding.rcp.model.Person;
 
 public class SamplePart {
 	private DataBindingContext m_bindingContext;
@@ -45,7 +46,7 @@ public class SamplePart {
 		
 		Label idLabel = new Label(parent, SWT.NONE);
 		idLabel.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
-		idLabel.setText("Id:");
+		idLabel.setText("Age:");
 		
 		idText = new Text(parent, SWT.BORDER);
 		idText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
@@ -65,14 +66,26 @@ public class SamplePart {
 		valueText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 		new Label(parent, SWT.NONE);
 		
+		Button loadButton = new Button(parent, SWT.NONE);
+		loadButton.setText("Load");
+		loadButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));
+		loadButton.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				broker.post("load/tableviewer","");
+			}
+		});
+		
+		new Label(parent, SWT.NONE);
 		Button testButton = new Button(parent, SWT.NONE);
 		testButton.addSelectionListener(new SelectionAdapter() {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-//				System.out.println(data.getId()+", "+data.getName()+", "+data.getValue());
-//				System.out.println(date);
-//				date.setMonth(11);
-				broker.post("TEST", "HALLO WELT");
+				Person p = new Person();
+				p.setAge(Integer.parseInt(idText.getText()));
+				p.setName(nameText.getText());
+				p.setNumner(valueText.getText());
+				broker.post("insert/person/to/tableviewer", p);
 			}
 		});
 		testButton.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 1, 1));

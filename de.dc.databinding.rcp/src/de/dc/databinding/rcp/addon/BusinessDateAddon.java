@@ -4,11 +4,10 @@ import java.util.Date;
 
 import javax.annotation.PostConstruct;
 
-import org.eclipse.core.internal.preferences.TestHelper;
 import org.eclipse.e4.core.contexts.ContextInjectionFactory;
 import org.eclipse.e4.core.contexts.IEclipseContext;
 
-import de.dc.databinding.rcp.control.TableComposite;
+import de.dc.databinding.rcp.model.PersonModelProvider;
 
 public class BusinessDateAddon {
 
@@ -16,7 +15,8 @@ public class BusinessDateAddon {
 	public void init(IEclipseContext context) {
 		Date date = ContextInjectionFactory.make(Date.class, context);
 		context.set(Date.class, date);
-//		TableComposite composite = ContextInjectionFactory.make(TableComposite.class, context);
-//		context.set(TableComposite.class, composite);
+		
+		PersonModelProvider provider = ContextInjectionFactory.make(PersonModelProvider.class, context);
+		context.set(PersonModelProvider.class, provider);
 	}
 }
