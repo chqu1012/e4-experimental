@@ -8,9 +8,11 @@ import javax.inject.Inject;
 import org.eclipse.core.databinding.DataBindingContext;
 import org.eclipse.core.databinding.beans.PojoProperties;
 import org.eclipse.core.databinding.observable.value.IObservableValue;
+import org.eclipse.e4.core.di.annotations.Optional;
 import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.Focus;
 import org.eclipse.e4.ui.di.Persist;
+import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.databinding.swt.WidgetProperties;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -94,6 +96,12 @@ public class SamplePart {
 
 	}
 
+	@Inject
+	@Optional
+	public void transfer(@UIEventTopic("transfer/string") String value){
+		System.out.println("transfer/string");
+	}
+	
 	@Focus
 	public void setFocus() {
 	}

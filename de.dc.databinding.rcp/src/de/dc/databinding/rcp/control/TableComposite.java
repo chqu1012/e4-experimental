@@ -3,6 +3,7 @@ package de.dc.databinding.rcp.control;
 import javax.inject.Inject;
 
 import org.eclipse.e4.core.di.annotations.Optional;
+import org.eclipse.e4.core.services.events.IEventBroker;
 import org.eclipse.e4.ui.di.UIEventTopic;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ILabelProviderListener;
@@ -11,6 +12,8 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TableViewerColumn;
 import org.eclipse.swt.SWT;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.FillLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -22,6 +25,8 @@ import de.dc.databinding.rcp.model.PersonModelProvider;
 
 public class TableComposite extends Composite {
 
+	@Inject IEventBroker broker;
+	
 	@Inject
 	PersonModelProvider provider;
 	private TableViewer tableViewer;
@@ -95,6 +100,13 @@ public class TableComposite extends Composite {
 			@Override
 			public Image getColumnImage(Object element, int columnIndex) {
 				return null;
+			}
+		});
+		
+		tableViewer.getTable().addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				broker.post("transfer/string", "Succeed Transfer");
 			}
 		});
 	}
